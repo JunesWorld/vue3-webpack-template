@@ -1,114 +1,63 @@
-# Webpack-template-basic
+# Vue3-webpack-template
 
 ## Package Install
 
 ```bash
-npm i -D webpack webpack-cli webpack-dev-server@next
+npm i vue@next
+npm i -D vue-loader@next vue-style-loader @vue/compiler-sfc
+npm i -D file-loader
 ```
 
-package.json
-```
-"scripts": {
-    "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+## webpack.config.js 수정
+
+module/rules
+- vue라는 확장자를 가지고 있는 파일을 필터링해서 vue-loader가 실행될 수 있게 설정
+- file을 읽을 수 있는 file-loader
+
+test
+- style부분이 해석 될 수 있게 vue-style-loader 추가
+
+전역 모듈
+- VueLoader에서 Plugin을 가져와 해당 내용을 plugins에서 생성자 함수를 실행하도록 설정
+
+module.exports/resolve
+- 경로 명시 시 확장자 생략할 수 있게 함
+- alias: 경로별칭 사용하면 해당 경로로 바로 jump
+  ```Javascript
+  // alias=경로별칭
+    // ~ 사용하면 해당 경로로 바로 jump
+    alias: {
+      '~': path.resolve(__dirname, 'src'), // 폴더가 모여 있는 경로
+      'assets': path.resolve(__dirname, 'src/assets') // 실제 이미지가 있는 경로
+    }
   },
+  ```
+
+## 시작하기
+
+```HTML
+<body>
+  <div id="app"></div>
+</body>
 ```
-- dev : 현재 개발 모드
-- build : 제품 모드
-- webpack : bundler가 동작하기 위한 핵심 package
-- webpack-cli : Command Line Interface 지원
-  - parcel은 자동 지원
-- webpack-dev-server : dev를 통해 server를 open 할 때 바로 새로고침하기 위해서 사용
 
-## webpack.config.js
+```Javascript
+// CDN
+// import Vue from 'vue'
 
-webpack은 브라우저에서 동작하는 것이 아닌 Node.js 환경에서 동작한다.
+// CLI
+// Vue 객체가 없다
+import { createApp } from 'vue'
+import App from './App.vue'
 
-## npm run build
+// HTML에서 app이라는 값을 가지고 있는 해당 요소에 vue 프로젝트 연결
+// 1. CDN
+//Vue.createApp(App).mount('#app')
 
-> 개발 서버 오픈 : npm run dev
-> 제품화 : npm run build
-
-컴파일 + 링크 : 분석한 소스코드로 실행 가능한 프로그램을 만듦</br>
-package.json에서 build 스크립트 부분이 실행되고, 여기에 webpack이 있다면 실행되는 원리
-
-## 개발 서버 오픈
+// 2. CLI
+createApp(App).mount('#app')
+```
 
 ```bash
-npm i -D html-webpack-plugin
+npm run dev
 ```
-
-webpack.config.js -> plugins 추가 -> ```npm run dev```
-
-## Favicon 설정(정적 파일 연결)
-
-```npm i -D copy-webpack-plugin```
-
-## module(CSS파일 읽게 하기)
-
-```npm i -D css-loader style-loader```
-
-## SCSS
-
-```npm i -D sass-loader sass```
-
-## Autoprefixer
-
-```npm i -D postcss autoprefixer postcss-loader --legacy-peer-deps```
-
-- packag.json
-  ```
-  "browserslist": [
-     "> 1%",
-     "last 2 versions"
-  ]
-  ```
-
-- .postcssrc.js 파일 생성
-
-## babel
-
-```npm i -D @babel/core @babel/preset-env @babel/plugin-transform-runtime```
-
-- .babelrc.js 파일 생성
-
-- webpack.config.js
-  ```
-  {
-        test: /\.js$/,
-        use: [
-          'babel-loader'
-        ]
-      }
-  ```
-
-  ```npm i -D babel-loader```
-
-## Netify 배포
-
-Login - New site from Git - Github - webpack-template-basic 선택
-
-> 개발 서버 오픈 : npm run dev</br>
-> 제품화 : npm run build
-
-- Build command = npm run build
-- Publish directory = dist/ (변경 시 수정할 것)
-
-Deploy site - 주소 접근
-
-## NPX, Degit
-
-새로운 Terminal Open
-
-- 경로 확인
-  ```bash
-  ls
-  ```
-- 다운 받기 원하는 경로로 이동
-  ```bash
-  cd [원하는 경로]
-  ```
-- 설치
-  ```bash
-  npx degit [Github 이름]/[다운 받을 폴더 이름] [다운 시 원하는 폴더 이름]
-  ```

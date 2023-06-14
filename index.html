@@ -5,24 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello Webpack!</title>
   <link rel=”stylesheet” href=https://cdn.jsdelivr.net/npm/rest-css@5.0.1/reset.min.css>
-  <!--
-    방법 1>
-    dist 폴더에서 css 파일 찾을 수 있게 해줘야한다.
-    static 폴더에 css 폴더 생성 
-    방법 2> 추천!!
-    - css 파일 Root경로로 이동
-    - main.js에 import
-    - webpack은 무조건 entry 지점인 main.js 부터 읽어나가기 시작한다.
-    main.js에 css가 연결되어 있어 webpack이 읽을 수 있게된다.
-    그 후 index.html과 섞어 dist폴더로 보내준다.
-
-    CSS 파일 읽을 수 없는 문제>
-    npm i -D css-loader style-loader
-  -->
-  <!--<link rel="stylesheet" href="./css/main.css">-->
 </head>
 <body>
-  <h1>Hello Webpack!!</h1>
-  <img src="./images/logo.png" alt="JUNE" />
+  <div id="app"></div>
 </body>
 </html>

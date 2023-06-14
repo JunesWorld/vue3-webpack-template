@@ -9,11 +9,23 @@ const HtmlPlugin = require('html-webpack-plugin')
 // Favicon 설정
 const CopyPlugin = require('copy-webpack-plugin')
 
+const { VueLoaderPlugin } = require('vue-loader')
+
 // export
 module.exports =  {
+  // 경로 명시 시 확장자 생략할 수 있게 함
+  resolve: {
+    extensions: ['.js', '.vue'],
+    // alias=경로별칭
+    // ~ 사용하면 해당 경로로 바로 jump
+    alias: {
+      '~': path.resolve(__dirname, 'src'), // 폴더가 모여 있는 경로
+      'assets': path.resolve(__dirname, 'src/assets') // 실제 이미지가 있는 경로
+    }
+  },
   // parcel index.html
   // 파일을 읽어들이기 시작하는 진입점 설정
-  entry: './js/main.js',
+  entry: './src/main.js',
 
   // 결과물(번들)을 반환하는 설정
   output: {
@@ -36,8 +48,14 @@ module.exports =  {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        use: 'vue-loader'
+      },
+      {
         test: /\.s?css$/, // .css 끝나는 것 찾기 | ? = s가 있을 수도 있고 없을수도 있다.
         use: [
+          // 순서 중요!
+          'vue-style-loader',
           'style-loader',
           'css-loader',
           'postcss-loader',
@@ -49,6 +67,10 @@ module.exports =  {
         use: [
           'babel-loader'
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|webp)$/,
+        use: 'file-loader'
       }
     ]
   },
@@ -63,7 +85,8 @@ module.exports =  {
       patterns: [
         { from: 'static' }
       ]
-    })
+    }),
+    new VueLoaderPlugin()
   ],
 
   devServer: {
