@@ -6,6 +6,7 @@
 npm i vue@next
 npm i -D vue-loader@next vue-style-loader @vue/compiler-sfc
 npm i -D file-loader
+npm i -D eslint eslint-plugin-vue babel-eslint
 ```
 
 ## webpack.config.js 수정
@@ -61,3 +62,21 @@ createApp(App).mount('#app')
 ```bash
 npm run dev
 ```
+
+## Code 검사 : .eslintrc.js 파일 생성
+
+Google 
+- vue3 eslint검색 
+  - vue/html-closing-bracket-newline</br>
+- eslint rules
+
+VScode
+- 파일 저장 시 eslint 규칙에 맞게 수정하겠다.
+- Cmd + shift + p : Preferences:Open Settings(JSON)
+  ```JS
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+  ```
+
+!! eslint 활성화 및 settings 해결해야함!!

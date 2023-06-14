@@ -1,3 +1,5 @@
 <template>
-  <img src="~assets/logo.png" alt="JUNE" />
+  <img 
+    src="~assets/logo.png" 
+    alt="JUNE" />
 </template>
