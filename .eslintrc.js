@@ -16,7 +16,7 @@ module.exports = {
   ],
   // 코드 분석기
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: '@babel/eslint-parser'
   },
   // 규칙 추가 가능
   // extends에서 설정했기 때문에 설정 skip
