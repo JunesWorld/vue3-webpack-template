@@ -72,7 +72,7 @@ Google
 
 VScode
 - 파일 저장 시 eslint 규칙에 맞게 수정하겠다.
-- Cmd + shift + p : Preferences:Open Settings(JSON)
+- Cmd + shift + p : eslint - Edit in settings.json (Preferences:Open Settings(JSON))
   ```JS
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
@@ -80,4 +80,7 @@ VScode
   ```
 
 !! eslint 활성화 및 settings 해결해야함 !!
+- Extensions : ESLint 
 - Parsing Error
+  ```npm install @babel/eslint-parser --save-dev```
+- 재부팅
