@@ -79,4 +79,5 @@ VScode
   }
   ```
 
-!! eslint 활성화 및 settings 해결해야함!!
+!! eslint 활성화 및 settings 해결해야함 !!
+- Parsing Error
