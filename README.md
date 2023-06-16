@@ -93,4 +93,5 @@ Github 저장소에 eslint branch 생성 후 명령어
 npx degit JunesWorld/vue3-webpack-template#eslint vue3-practice
 cd vue3-practice
 code . -r
+npm install
 ```
