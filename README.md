@@ -79,8 +79,18 @@ VScode
   }
   ```
 
-!! eslint 활성화 및 settings 해결해야함 !!
+!! eslint 활성화 및 settings 해결 !!
 - Extensions : ESLint 
 - Parsing Error
   ```npm install @babel/eslint-parser --save-dev```
 - 재부팅
+
+## eslint Branch 생성
+
+Github 저장소에 eslint branch 생성 후 명령어 
+
+```bash
+npx degit JunesWorld/vue3-webpack-template#eslint vue3-practice
+cd vue3-practice
+code . -r
+```
