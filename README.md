@@ -95,3 +95,39 @@ cd vue3-practice
 code . -r
 npm install
 ```
+
+## 반응성(Reactivity)
+
+데이터를 정의하고 그것을 갱신할 수 있는 이벤트의 핸들러를 만듬
+
+- count data를 갱신하면 연결된 화면도 갱신
+- data에 숫자 0을 넣어 초기화하여 화면에 출력
+- increase라는 함수를 만들어 함수가 실행될 때마다 count data를 this라는 키워드로 접근하여 숫자 1씩 증가시킴(this = App.vue 파일의 script 부분)
+- increase는 this로 count에 접근하여 실행되면 1씩 증가시키는데 h1 tag를 클릭하면 화면에 출력
+
+
+```html
+<template>
+  <h1 @click="increase">
+    {{ count }}
+  </h1>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    increase() {
+      this.count += 1
+    }
+  }
+}
+</script>
+```
+
+
+## Error 해결 못 함
