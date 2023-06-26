@@ -132,3 +132,4 @@ export default {
 
 ## Module 호환 Error
 
+Vue Version -> ```"vue": "^3.0.7"```
