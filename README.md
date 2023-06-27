@@ -132,4 +132,5 @@ export default {
 
 ## Module 호환 Error
 
-Vue Version -> ```"vue": "^3.0.7"```
+Vue Version -> ```"vue": "^3.0.7"```</br>
+하지만, vue3-test에서 style 적용하면 화면에 출력되지 않는다...
